@@ -79,7 +79,7 @@ let cities:[Cities:[Cities]] = [.Oradea:[.Zerind,.Sibiu],
 //
 
 
-func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
+func depthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
     
 //    var path = Stack<Cities>()
     var edge : Stack<Cities> = Stack<Cities>()
@@ -103,8 +103,6 @@ func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
                 print("Found goal \(parent.rawValue)")
                 return
             }
-            
-            
             for city in cities[parent]!.shuffled() {
                 if !visited.contains(city) {
                     edge.push(city)
@@ -112,10 +110,8 @@ func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
             }
         }
     }
-    
-    return
 }
 
-breadthFirstSearch(initalNode: Cities.Oradea, goalNode: Cities.Bucharest)
+depthFirstSearch(initalNode: Cities.Oradea, goalNode: Cities.Bucharest)
 
 
