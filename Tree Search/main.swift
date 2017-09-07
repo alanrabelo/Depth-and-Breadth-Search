@@ -82,7 +82,7 @@ let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
 func depthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     
 //    var path = Stack<Cities>()
-    var edge : Stack<CityName> = Stack<Cities>()
+    var edge : Stack<CityName> = Stack<CityName>()
     var visited = [CityName]()
     
     if initial == goal {
@@ -141,29 +141,46 @@ func breadthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     }
 }
 
-func depthLimitedSearch(initialNode initial: CityName, goalNode goal:CityName,with limit: Int) -> CityName {
-    if initial == goal && limit == 0{
-        print("Found goal in initial node")
-    }
-    //let successors = state.generateSuccessors()
-    if limit > 0 {
-        for city in cities[initial]! {
-            let result = depthLimitedSearch(initialNode: city,goalNode: goal ,with: limit - 1)
-            if result != nil {
-                return result
+func recursiveDepthLimitedSearch(initialNode initial: CityName, goalNode goal:CityName, visitedCities visited:inout [CityName],withLimit limit: Int) -> CityName? {
+    if !visited.contains(initial) {
+       // print("visited \(initial.rawValue)")
+        visited.append(initial)
+        if initial == goal{
+         //   print("Found goal \(initial.rawValue)")//remove this, beacause i will only use this to test
+            return initial
+        }else if limit > 0 {
+            for city in cities[initial]!{
+                if let result = recursiveDepthLimitedSearch(initialNode: city,goalNode: goal,visitedCities: &visited,withLimit: limit - 1) {
+                    return result
+                }
             }
         }
     }
+    return nil
 }
 
-func iterativeDeepeningSearch(){
-
+func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityName){
+    var visited =  [CityName]()
+    var depth = 1
+    var finish = false
+    while !finish {
+        if recursiveDepthLimitedSearch(initialNode: initial, goalNode: goal, visitedCities: &visited, withLimit: depth) != nil {
+            finish = true
+        }else{
+            visited = []
+            depth += 3
+        }
+    }
+    for city in visited {
+        print("visited \(city.rawValue)")
+    }
 }
 
+//depthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
+//breadthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
+//var visited = [CityName]()
+//let result = recursiveDepthLimitedSearch(initialNode: .Oradea, goalNode: .Bucharest,visitedCities:&visited,withLimit:5)
+//print("\(result?.rawValue ?? "not found")")
 
-depthFirstSearch(initalNode: Cities.Oradea, goalNode: Cities.Bucharest)
-breadthFirstSearch(initalNode: Cities.Oradea, goalNode: .Bucharest)
-
-
-
+iterativeDeepeningSearch(initialNode: .Oradea, goalNode: .Bucharest)
 
