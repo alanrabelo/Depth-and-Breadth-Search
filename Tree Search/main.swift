@@ -32,7 +32,7 @@ extension Collection {
     }
 }
 
-enum Cities:String {
+enum CityName:String {
     case Oradea = "Oradea"
     case Zerind = "Zerind"
     case Arad = "Arad"
@@ -57,7 +57,7 @@ enum Cities:String {
 
 
 //sucessors
-let cities:[Cities:[Cities]] = [.Oradea:[.Zerind,.Sibiu],
+let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
                                 .Zerind:[.Oradea,.Arad],
                                 .Arad:[.Sibiu,.Zerind,.Timisoara],
                                 .Sibiu:[.Fagaras,.Vilcea,.Oradea,.Arad],
@@ -79,11 +79,11 @@ let cities:[Cities:[Cities]] = [.Oradea:[.Zerind,.Sibiu],
 //
 
 
-func depthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
+func depthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     
 //    var path = Stack<Cities>()
-    var edge : Stack<Cities> = Stack<Cities>()
-    var visited = [Cities]()
+    var edge : Stack<CityName> = Stack<Cities>()
+    var visited = [CityName]()
     
     if initial == goal {
         print("Found goal in initial node")
@@ -112,11 +112,11 @@ func depthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
     }
 }
 
-func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
+func breadthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     
     //    var path = Stack<Cities>()
-    var edge : Queue<Cities> = Queue<Cities>()
-    var visited = [Cities]()
+    var edge : Queue<CityName> = Queue<CityName>()
+    var visited = [CityName]()
     
     if initial == goal {
         print("Found goal in initial node")
@@ -140,6 +140,26 @@ func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
         }
     }
 }
+
+func depthLimitedSearch(initialNode initial: CityName, goalNode goal:CityName,with limit: Int) -> CityName {
+    if initial == goal && limit == 0{
+        print("Found goal in initial node")
+    }
+    //let successors = state.generateSuccessors()
+    if limit > 0 {
+        for city in cities[initial]! {
+            let result = depthLimitedSearch(initialNode: city,goalNode: goal ,with: limit - 1)
+            if result != nil {
+                return result
+            }
+        }
+    }
+}
+
+func iterativeDeepeningSearch(){
+
+}
+
 
 depthFirstSearch(initalNode: Cities.Oradea, goalNode: Cities.Bucharest)
 breadthFirstSearch(initalNode: Cities.Oradea, goalNode: .Bucharest)
