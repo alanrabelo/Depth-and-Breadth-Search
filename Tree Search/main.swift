@@ -112,6 +112,38 @@ func depthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
     }
 }
 
+func breadthFirstSearch(initalNode initial: Cities,goalNode goal: Cities) {
+    
+    //    var path = Stack<Cities>()
+    var edge : Queue<Cities> = Queue<Cities>()
+    var visited = [Cities]()
+    
+    if initial == goal {
+        print("Found goal in initial node")
+    }
+    
+    edge.enqueue(initial)
+    
+    while !edge.isEmpty {
+        if let parent = edge.dequeue() {
+            print("visited \(parent.rawValue)")
+            visited.append(parent)
+            if parent == goal {
+                print("Found goal \(parent.rawValue)")
+                return
+            }
+            for city in cities[parent]!.shuffled() {
+                if !visited.contains(city) {
+                    edge.enqueue(city)
+                }
+            }
+        }
+    }
+}
+
 depthFirstSearch(initalNode: Cities.Oradea, goalNode: Cities.Bucharest)
+breadthFirstSearch(initalNode: Cities.Oradea, goalNode: .Bucharest)
+
+
 
 
