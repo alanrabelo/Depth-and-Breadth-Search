@@ -10,9 +10,10 @@
 		1058A3E41F61ED5F00D6D7A9 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E31F61ED5F00D6D7A9 /* Stack.swift */; };
 		1058A3E61F61EDB800D6D7A9 /* MutableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */; };
 		1058A3E81F61EDE400D6D7A9 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */; };
-		1058A3ED1F61EF1B00D6D7A9 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3EA1F61EF1B00D6D7A9 /* BreadthFirstSearch.swift */; };
 		1058A3EE1F61EF1B00D6D7A9 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3EB1F61EF1B00D6D7A9 /* State.swift */; };
-		1058A3EF1F61EF1B00D6D7A9 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3EC1F61EF1B00D6D7A9 /* Strategy.swift */; };
+		10E5E6731F62D57B00B567E8 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6721F62D57B00B567E8 /* Problem.swift */; };
+		10E5E6751F62D58C00B567E8 /* StateMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6741F62D58C00B567E8 /* StateMC.swift */; };
+		10E5E6771F62D5B100B567E8 /* MissionariesCannibalProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */; };
 		E7EE2CE81F60252100ACAECD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CE71F60252100ACAECD /* main.swift */; };
 		E7EE2CF41F60255F00ACAECD /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CEF1F60255F00ACAECD /* HashSet.swift */; };
 		E7EE2CF51F60255F00ACAECD /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CF01F60255F00ACAECD /* LinkedList.swift */; };
@@ -36,9 +37,10 @@
 		1058A3E31F61ED5F00D6D7A9 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Extensions.swift"; sourceTree = "<group>"; };
 		1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
-		1058A3EA1F61EF1B00D6D7A9 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		1058A3EB1F61EF1B00D6D7A9 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		1058A3EC1F61EF1B00D6D7A9 /* Strategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		10E5E6721F62D57B00B567E8 /* Problem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
+		10E5E6741F62D58C00B567E8 /* StateMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMC.swift; sourceTree = "<group>"; };
+		10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionariesCannibalProblem.swift; sourceTree = "<group>"; };
 		E7EE2CE41F60252100ACAECD /* Tree Search */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tree Search"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EE2CE71F60252100ACAECD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E7EE2CEF1F60255F00ACAECD /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
@@ -61,9 +63,8 @@
 		1058A3E91F61EEEB00D6D7A9 /* Cannibal and Missionaries problem */ = {
 			isa = PBXGroup;
 			children = (
-				1058A3EA1F61EF1B00D6D7A9 /* BreadthFirstSearch.swift */,
-				1058A3EB1F61EF1B00D6D7A9 /* State.swift */,
-				1058A3EC1F61EF1B00D6D7A9 /* Strategy.swift */,
+				10E5E6741F62D58C00B567E8 /* StateMC.swift */,
+				10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */,
 			);
 			name = "Cannibal and Missionaries problem";
 			sourceTree = "<group>";
@@ -104,6 +105,8 @@
 				1058A3E31F61ED5F00D6D7A9 /* Stack.swift */,
 				1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */,
 				1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */,
+				10E5E6721F62D57B00B567E8 /* Problem.swift */,
+				1058A3EB1F61EF1B00D6D7A9 /* State.swift */,
 			);
 			path = "blind-searches";
 			sourceTree = "<group>";
@@ -168,14 +171,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1058A3E61F61EDB800D6D7A9 /* MutableCollection+Extensions.swift in Sources */,
+				10E5E6771F62D5B100B567E8 /* MissionariesCannibalProblem.swift in Sources */,
 				E7EE2CF61F60255F00ACAECD /* LinkedListNode.swift in Sources */,
-				1058A3ED1F61EF1B00D6D7A9 /* BreadthFirstSearch.swift in Sources */,
 				1058A3EE1F61EF1B00D6D7A9 /* State.swift in Sources */,
+				10E5E6731F62D57B00B567E8 /* Problem.swift in Sources */,
 				E7EE2CF81F60255F00ACAECD /* Queue.swift in Sources */,
-				1058A3EF1F61EF1B00D6D7A9 /* Strategy.swift in Sources */,
 				E7EE2CF51F60255F00ACAECD /* LinkedList.swift in Sources */,
 				E7EE2CF41F60255F00ACAECD /* HashSet.swift in Sources */,
 				1058A3E81F61EDE400D6D7A9 /* Collection+Extensions.swift in Sources */,
+				10E5E6751F62D58C00B567E8 /* StateMC.swift in Sources */,
 				1058A3E41F61ED5F00D6D7A9 /* Stack.swift in Sources */,
 				E7EE2CE81F60252100ACAECD /* main.swift in Sources */,
 			);
