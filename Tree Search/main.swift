@@ -58,7 +58,6 @@ let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
 
 func depthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     
-//    var path = Stack<Cities>()
     var edge : Stack<CityName> = Stack<CityName>()
     var visited = [CityName]()
     
@@ -152,6 +151,7 @@ func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityN
         print("visited \(city.rawValue)")
     }
 }
+
 //depthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
 //breadthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
 //var visited = [CityName]()
@@ -159,7 +159,7 @@ func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityN
 //print("\(result?.rawValue ?? "not found")")
 //iterativeDeepeningSearch(initialNode: .Oradea, goalNode: .Bucharest)
 let initialState = StateMC(value: (C:3,M:3,B:1), ruleApplied: "NONE")
-let goalState = StateMC(value: (C:0,M:0,B:1), ruleApplied: "NONE")
+let goalState = StateMC(value: (C:0,M:0,B:-1), ruleApplied: "NONE")
 
 let problem = MissionariesCannibalProblem(initalState: initialState, goalStateValue: goalState, searchType: .bfs)
 

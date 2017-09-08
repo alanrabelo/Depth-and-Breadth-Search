@@ -27,7 +27,7 @@ struct StateMC:State {
     var ruleApplied: String
     
     func isGoal() -> Bool {
-        return value.C == 0 && value.M == 0 && value.B == 1
+        return value.C == 0 && value.M == 0
      }
     
     func isValid() -> Bool {
@@ -50,27 +50,31 @@ struct StateMC:State {
     }
 
     func generateSucessors() -> [StateMC] {
-        let rules = [(M:1, C:0),(M:1, C:1),(M:0, C:1),(M:0, C:2)]
+        let operators = [(M:1, C:0),(M:1, C:1),(M:0, C:1),(M:0, C:2)]
         var generatedStates = [StateMC]()
         //TO DO: Refactor this part
         
-        for i in 0..<rules.count {
-            let m = rules[i].M
-            let c = rules[i].C
+        for i in 0..<operators.count {
+            
+            let m = operators[i].M
+            let c = operators[i].C
             let b = self.value.B
             
             let newM = self.value.M + (-1 * b * m)
             let newC = self.value.C + (-1 * b * c)
             let newB = (b * -1)
+            
             let value:ValueType = (M:newM,C:newC,B:newB)
+            
             let newState = StateMC(value: value, ruleApplied: (i + 1).description)
+            
             generatedStates.append(newState)
         }
+        
         let validStates =  generatedStates.filter({
             (state) -> Bool in
             return state.isValid()
         })
-        
         return validStates
     }
 
@@ -83,18 +87,17 @@ struct StateMC:State {
     }
 }
 
-
 protocol Problem{
     associatedtype StateType:State
-    var initialState: StateType { get }
-    var goalState: StateType { get }
+    var initialState: StateType { get set}
+    var goalState: StateType { get set}
     var searchType:SearchType { get set }
-    func getSolution() -> [StateType]//retorna o nó que é o goal ou retorna nada
+    func getSolution() -> [StateType]
 }
 
 extension Problem {
     func printSolution() {
-    
+        self.depthFirstSearch(initalNode: initialState, goalNode: goalState)
     }
 }
 
@@ -125,83 +128,33 @@ extension Problem {
                 let sucessors = parent.generateSucessors()
                 
                 for sucessor in sucessors {
-                    print(!visited.contains(sucessor))
                     if !visited.contains(sucessor) {
                         edge.push(sucessor)
                     }
                 }
             }
         }
-        print(visited)
-        print("don't find answer")
-    }
-    
-    func breadthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
-        //    var path = Stack<Cities>()
-        var edge : Queue<CityName> = Queue<CityName>()
-        var visited = [CityName]()
-        
-        if initial == goal {
-            print("Found goal in initial node")
-        }
-        
-        edge.enqueue(initial)
-        
-        while !edge.isEmpty {
-            if let parent = edge.dequeue() {
-                print("visited \(parent.rawValue)")
-                visited.append(parent)
-                if parent == goal {
-                    print("Found goal \(parent.rawValue)")
-                    return
-                }
-                for city in cities[parent]!.shuffled() {
-                    if !visited.contains(city) {
-                        edge.enqueue(city)
-                    }
-                }
-            }
-        }
-    }
-    
-    func recursiveDepthLimitedSearch(initialNode initial: CityName, goalNode goal:CityName, visitedCities visited:inout [CityName],withLimit limit: Int) -> CityName? {
-        if !visited.contains(initial) {
-            // print("visited \(initial.rawValue)")
-            visited.append(initial)
-            if initial == goal{
-                //   print("Found goal \(initial.rawValue)")//remove this, beacause i will only use this to test
-                return initial
-            }else if limit > 0 {
-                for city in cities[initial]!{
-                    if let result = recursiveDepthLimitedSearch(initialNode: city,goalNode: goal,visitedCities: &visited,withLimit: limit - 1) {
-                        return result
-                    }
-                }
-            }
-        }
-        return nil
-    }
-    
-    func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityName){
-        var visited =  [CityName]()
-        var depth = 1
-        var finish = false
-        while !finish {
-            if recursiveDepthLimitedSearch(initialNode: initial, goalNode: goal, visitedCities: &visited, withLimit: depth) != nil {
-                finish = true
-            }else{
-                visited = []
-                depth += 3
-            }
-        }
-        for city in visited {
-            print("visited \(city.rawValue)")
-        }
     }
 }
 
-class MissionariesCannibalProblem:Problem {
+/*
+    Missionaries and Cannibals problem is very famous in Artificial Intelligence because it
+ was the subject of the first paper that approached problem formulation from an
+ analytical viewpoint. The problem can be stated as follow. Three missionaries and three
+ cannibals are on one side of a river, along with a boat that can hold one or two people. Now
+ we have to find a way to get everyone to the other side, without ever leaving a group of
+ missionaries in one place outnumbered by the cannibals in other side. The above problem can
+ be solved by a graph search method. Here I represent the problem as a set of states and
+ operators. States are snapshots of the world and operators are those which transform one state
+ into another state. States can be mapped to nodes of a graph and operators are the edges of
+ the graph.
+ 
+ font : http://flipkarma.com/media_dir/main_documents/Misionaries_And_Cannibals_Report.pdf
+ 
+ */
 
+
+class MissionariesCannibalProblem:Problem {
 
     typealias StateType = StateMC
     var initialState:StateType
@@ -215,15 +168,6 @@ class MissionariesCannibalProblem:Problem {
     }
     
     func getSolution() -> [StateType] {
-//        let initial = LinkedListNode<StateType>(value: initialState)
-//        let goal = LinkedListNode<StateType>(value: goalState)
-//        switch searchType {
-//        case .bfs:
-//            return breadthFirstSearch
-//        default:
-//            return nil
-//        }
-        
         return []
     }
     
