@@ -1,12 +1,14 @@
 //
-//  Queue.swift
-//  Cannibals and Missionaries
+//  Stack.swift
+//  Tree Search
 //
-//  Created by Renan Trévia on 4/7/17.
-//  Copyright © 2017 Renan Trévia. All rights reserved.
+//  Created by Vitor Muniz on 07/09/17.
+//  Copyright © 2017 alanrabelo. All rights reserved.
 //
 
-public struct Queue<T> {
+import Foundation
+
+public struct Stack<T> {
     fileprivate var array = [T]()
     
     public var count: Int {
@@ -17,11 +19,11 @@ public struct Queue<T> {
         return array.isEmpty
     }
     
-    public mutating func enqueue(_ element: T) {
-        array.append(element)
+    public mutating func push(_ element: T) {
+        array.insert(element, at: 0)
     }
     
-    public mutating func dequeue() -> T? {
+    public mutating func pop() -> T? {
         if isEmpty {
             return nil
         } else {

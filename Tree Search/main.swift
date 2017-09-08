@@ -8,29 +8,6 @@
 
 import Foundation
 
-extension MutableCollection where Index == Int {
-    /// Shuffle the elements of `self` in-place.
-    mutating func shuffle() {
-        // empty and single-element collections don't shuffle
-        if count < 2 { return }
-        
-        for i in startIndex ..< endIndex - 1 {
-            let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
-            if i != j {
-                swap(&self[i], &self[j])
-            }
-        }
-    }
-}
-
-extension Collection {
-    /// Return a copy of `self` with its elements shuffled
-    func shuffled() -> [Iterator.Element] {
-        var list = Array(self)
-        list.shuffle()
-        return list
-    }
-}
 
 enum CityName:String {
     case Oradea = "Oradea"
@@ -175,12 +152,15 @@ func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityN
         print("visited \(city.rawValue)")
     }
 }
-
 //depthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
 //breadthFirstSearch(initalNode: .Oradea, goalNode: .Bucharest)
 //var visited = [CityName]()
 //let result = recursiveDepthLimitedSearch(initialNode: .Oradea, goalNode: .Bucharest,visitedCities:&visited,withLimit:5)
 //print("\(result?.rawValue ?? "not found")")
+//iterativeDeepeningSearch(initialNode: .Oradea, goalNode: .Bucharest)
+let initialState = StateMC(value: (C:3,M:3,B:1), ruleApplied: "NONE")
+let goalState = StateMC(value: (C:0,M:0,B:1), ruleApplied: "NONE")
 
-iterativeDeepeningSearch(initialNode: .Oradea, goalNode: .Bucharest)
+let problem = MissionariesCannibalProblem(initalState: initialState, goalStateValue: goalState, searchType: .bfs)
 
+problem.printSolution()
