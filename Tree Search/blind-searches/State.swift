@@ -22,13 +22,14 @@ protocol State:Equatable,CustomStringConvertible{
 }
 
 struct StateMC:State {
+    
     typealias ValueType = (M:Int,C:Int,B:Int)
     var value:ValueType
     var ruleApplied: String
     
     func isGoal() -> Bool {
         return value.C == 0 && value.M == 0
-     }
+    }
     
     func isValid() -> Bool {
         let c = value.C
@@ -43,7 +44,7 @@ struct StateMC:State {
             return false
         }
         //more cannibals then missionaries on other shore
-        if c  < m && m < 3 {
+        if c > m && m < 3 {
             return false
         }
         return true
