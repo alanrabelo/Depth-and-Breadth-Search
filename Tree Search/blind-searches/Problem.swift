@@ -26,7 +26,7 @@ extension Problem {
             self.depthFirstSearch(initalNode: initialState, goalNode: goalState)
         case .dls:
             var visiteds = [StateType]()
-            let result = self.recursiveDepthLimitedSearch(initialNode: initialState, goalNode: goalState, visitedStates: &visiteds, withLimit: 10)
+            let result = self.recursiveDepthLimitedSearch(initialNode: initialState, goalNode: goalState, withLimit: 10)
             
         case .iddfs:
             self.iterativeDeepeningSearch(initialNode: initialState, goalNode: goalState)
@@ -74,7 +74,6 @@ extension Problem {
     func breadthFirstSearch(initalNode initial: StateType,goalNode goal: StateType) {
         
         var edge : Queue<StateType> = Queue<StateType>()
-        var visited = [StateType]()
         
         if initial == goal {
             print("Found goal in initial node")
@@ -86,7 +85,7 @@ extension Problem {
             
             if let parent = edge.dequeue() {
                 
-                visited.append(parent)
+                
                 print("\(parent.description)")
                 
                 if parent == goal {
@@ -97,47 +96,42 @@ extension Problem {
                 let sucessors = parent.generateSucessors()
                 
                 for sucessor in sucessors {
-                    if !visited.contains(sucessor) {
                         edge.enqueue(sucessor)
-                    }
                 }
             }
         }
     }
     
-    func recursiveDepthLimitedSearch(initialNode node: StateType, goalNode goal:StateType, visitedStates visited:inout [StateType],withLimit limit: Int) -> StateType? {
-        if !visited.contains(node) {
-            print("visited \(node.description)")
-            visited.append(node)
-            if node == goal{
-                print("Found goal \(node.description)")
-                return node
-            }else if limit > 0 {
-                
-                let sucessors = node.generateSucessors()
-                for sucessor in sucessors{
-                    if let result = recursiveDepthLimitedSearch(initialNode: sucessor,goalNode: goal,visitedStates: &visited,withLimit: limit - 1) {
+    
+    func recursiveDepthLimitedSearch(initialNode node: StateType, goalNode goal:StateType,withLimit limit: Int) -> StateType? {
+        print("visited \(node.description)")
+        if node == goal{
+            print("Found goal \(node.description)")
+            return node
+        }else if limit > 0 {
+            
+            let sucessors = node.generateSucessors()
+            for sucessor in sucessors{
+                if let result = recursiveDepthLimitedSearch(initialNode: sucessor,goalNode: goal,withLimit: limit - 1) {
                         return result
-                    }
                 }
             }
         }
         return nil
     }
     
+    
+    
     func iterativeDeepeningSearch(initialNode node: StateType, goalNode goal:StateType){
-        var visited =  [StateType]()
         var depth = 1
         var finish = false
         while !finish {
-            
             print("depth = \(depth)")
-            
-            if recursiveDepthLimitedSearch(initialNode: node, goalNode: goal, visitedStates: &visited, withLimit: depth) != nil {
+            if recursiveDepthLimitedSearch(initialNode: node, goalNode: goal, withLimit: depth) != nil {
                 finish = true
             }else{
-                visited = []
                 depth += 3
+                print("not found")
             }
         }
     }

@@ -160,6 +160,6 @@ func iterativeDeepeningSearch(initialNode initial: CityName, goalNode goal:CityN
 let initialState = StateMC(value: (C:3,M:3,B:1), ruleApplied: "NONE")
 let goalState = StateMC(value: (C:0,M:0,B:-1), ruleApplied: "NONE")
 
-let problem = MissionariesCannibalProblem(initalState: initialState, goalStateValue: goalState, searchType: .iddfs)
+let problem = MissionariesCannibalProblem(initalState: initialState, goalStateValue: goalState, searchType: .dls)
 
 problem.printSolution()
