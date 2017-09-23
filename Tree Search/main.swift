@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum CityName:String {
     case Oradea = "Oradea"
     case Zerind = "Zerind"
@@ -32,8 +31,6 @@ enum CityName:String {
     case Eforie = "Eforie"
 }
 
-
-//sucessors
 let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
                                 .Zerind:[.Oradea,.Arad],
                                 .Arad:[.Sibiu,.Zerind,.Timisoara],
@@ -53,8 +50,6 @@ let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
                                 .Vaslui:[.Urziceni,.Iasi],
                                 .Iasi:[.Vaslui,.Neamt],
                                 .Neamt:[.Iasi]]
-//
-
 
 func depthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     
@@ -66,7 +61,6 @@ func depthFirstSearch(initalNode initial: CityName,goalNode goal: CityName) {
     }
     
     edge.push(initial)
-
     
     while !edge.isEmpty {
         
