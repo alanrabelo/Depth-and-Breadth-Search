@@ -11,7 +11,7 @@ import Foundation
 
 protocol Problem {
     
-    associatedtype StateType: Any
+    associatedtype StateType: Node
     
     var initialState: StateType { get set}
     var goalState: StateType { get set}
@@ -20,9 +20,9 @@ protocol Problem {
 }
 
 
-class CityProblem: Problem {
+class CityProblem<T : Node>: Problem {
     
-    typealias StateType = City
+    typealias StateType = T
 
     var initialState: StateType
     

@@ -57,7 +57,9 @@ final class Aspirador : Node {
     
     func sucessors() -> [NodeType] {
         return (aspStates[self.value]?.map({ (cityName) -> NodeType in
-            return NodeType(withValue: Aspirador.NodeValueType(rawValue: cityName.rawValue)!)
+            let sucessor = NodeType(withValue: Aspirador.NodeValueType(rawValue: cityName.rawValue)!)
+            sucessor.parent = self
+            return sucessor
         }))!
     }
     

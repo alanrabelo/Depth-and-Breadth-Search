@@ -18,11 +18,12 @@ enum SearchType {
 
 protocol Node: Equatable {
     
-    associatedtype NodeValueType : Any
+    associatedtype NodeValueType : Equatable
     
     var value : NodeValueType {get set}
     var parent : Self? {get set}
     func sucessors() -> [Self]
+    
 }
 
 

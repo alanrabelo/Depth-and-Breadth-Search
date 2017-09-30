@@ -24,7 +24,7 @@ var bucharestNode = citiesNodes.filter { (city) -> Bool in
     return city.value == CityName.Bucharest
     }.first!
 
-let problem = CityProblem(withInitialState: aradNode, andGoalState: bucharestNode, andSearchType: .bfs)
+let problem = CityProblem<City>(withInitialState: aradNode, andGoalState: bucharestNode, andSearchType: .bfs)
 
 let agent = Agent(withProblem: problem)
 
@@ -47,7 +47,7 @@ var rightCleanClean = aspNodes.filter { (city) -> Bool in
 
 let aspproblem = AspProblem(withInitialState: leftDirtyDirty, andGoalState: rightCleanClean, andSearchType: .bfs)
 
-let agent2 = Agent2(withProblem: aspproblem)
+let agent2 = Agent(withProblem: aspproblem)
 print(agent2.solution())
 //let aspagent = Agent(withProblem: aspproblem)
 //

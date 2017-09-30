@@ -54,6 +54,8 @@ let cities:[CityName:[CityName]] = [.Oradea:[.Zerind,.Sibiu],
 
 
 final class City : Node {
+
+    
     
     typealias NodeValueType = CityName
     typealias NodeType = City
@@ -67,7 +69,10 @@ final class City : Node {
     
     func sucessors() -> [NodeType] {
         return (cities[self.value]?.map({ (cityName) -> NodeType in
-            return NodeType(withValue: City.NodeValueType(rawValue: cityName.rawValue)!)
+            let sucessor = NodeType(withValue: City.NodeValueType(rawValue: cityName.rawValue)!)
+            sucessor.parent = self
+            return sucessor
+            
         }))!
     }
     
