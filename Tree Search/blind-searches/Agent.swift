@@ -35,18 +35,20 @@ class Agent<AnyProblem : Problem> : AgentDelegate {
     
     func solution() -> String {
         
+        let path : [NodeType]?
+        
         switch problem.searchType {
         case .bfs:
-            if let path = bfs() {
-                for city in path {
-                    print(city.value)
-                }
-            }
+            path = bfs()
         case .dfs:
-            if let path = dfs() {
-                for city in path {
-                    print(city.value)
-                }
+            path = dfs()
+        case .dfsvisited:
+            path = dfs(allowVisitHistory: true)
+        }
+    
+        if let path = path {
+            for city in path {
+                print(city.value)
             }
         }
         
@@ -54,7 +56,7 @@ class Agent<AnyProblem : Problem> : AgentDelegate {
         return ""
     }
     
-    func dfs() -> [NodeType]? {
+    func dfs(allowVisitHistory : Bool = false) -> [NodeType]? {
         
         let firstNode = self.problem.initialState
         
@@ -79,14 +81,20 @@ class Agent<AnyProblem : Problem> : AgentDelegate {
                         currentNode = currentNode.parent!
                     }
                     path.insert(currentNode, at: 0)
+                    print("Fringe has \(self.fringedfs.count)")
+
                     return path
                     
                 } else {
                     for state in currentNode.sucessors() {
+                        if allowVisitHistory == true && self.fringedfs.array.contains(state) {
+                            continue
+                        }
+                        
                         self.fringedfs.insert(state)
+
                     }
                     
-                    print("Fringe has \(self.fringedfs.count)")
 
                 }
                 
@@ -118,7 +126,6 @@ class Agent<AnyProblem : Problem> : AgentDelegate {
                 
                 if currentNode.value == self.problem.goalState.value {
                     
-                    print("Fringe has \(self.fringebfs.count)")
                     var path = [NodeType]()
                     
                     while currentNode.parent != nil {
@@ -126,6 +133,8 @@ class Agent<AnyProblem : Problem> : AgentDelegate {
                         currentNode = currentNode.parent!
                     }
                     path.insert(currentNode, at: 0)
+                    print("Fringe has \(self.fringebfs.count)")
+
                     return path
                     
                 } else {

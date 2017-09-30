@@ -11,6 +11,7 @@ import Foundation
 enum SearchType {
     case bfs
     case dfs
+    case dfsvisited
 //    case iddfs
 //    case dls
 }

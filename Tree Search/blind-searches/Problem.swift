@@ -20,7 +20,7 @@ protocol Problem {
 }
 
 
-class CityProblem<T : Node>: Problem {
+class AnyProblem<T : Node>: Problem {
     
     typealias StateType = T
 
@@ -38,22 +38,5 @@ class CityProblem<T : Node>: Problem {
     
 }
 
-class AspProblem: Problem {
-    
-    typealias StateType = Aspirador
-    
-    var initialState: StateType
-    
-    var goalState: StateType
-    
-    var searchType: SearchType
-    
-    init(withInitialState initialState : StateType, andGoalState goalState : StateType, andSearchType searchType : SearchType) {
-        self.initialState = initialState
-        self.goalState = goalState
-        self.searchType = searchType
-    }
-    
-}
 
 
