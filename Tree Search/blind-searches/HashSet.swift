@@ -6,6 +6,8 @@
 //  Copyright © 2017 Renan Trévia. All rights reserved.
 //
 
+//Halloo!
+
 public struct HashSet<T: Hashable> {
     var dictionary = Dictionary<T, Bool>()
     

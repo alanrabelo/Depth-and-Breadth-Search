@@ -7,7 +7,24 @@
 //
 
 public struct Queue<T> {
-    fileprivate var array = [T]()
+    
+    typealias ElementType = T
+    
+    var array = [T]()
+    
+    mutating func insert(_ element: T) {
+        array.append(element)
+
+    }
+    
+    mutating func remove() -> T? {
+        if isEmpty {
+            return nil
+        } else {
+            return array.removeFirst()
+        }
+    }
+    
     
     public var count: Int {
         return array.count
@@ -17,17 +34,6 @@ public struct Queue<T> {
         return array.isEmpty
     }
     
-    public mutating func enqueue(_ element: T) {
-        array.append(element)
-    }
-    
-    public mutating func dequeue() -> T? {
-        if isEmpty {
-            return nil
-        } else {
-            return array.removeFirst()
-        }
-    }
     
     public var front: T? {
         return array.first

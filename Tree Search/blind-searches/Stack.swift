@@ -9,6 +9,9 @@
 import Foundation
 
 public struct Stack<T> {
+    
+    typealias ElementType = T
+
     fileprivate var array = [T]()
     
     public var count: Int {
@@ -19,11 +22,11 @@ public struct Stack<T> {
         return array.isEmpty
     }
     
-    public mutating func push(_ element: T) {
+    mutating func insert(_ element: T) {
         array.insert(element, at: 0)
     }
     
-    public mutating func pop() -> T? {
+    mutating func remove() -> T? {
         if isEmpty {
             return nil
         } else {

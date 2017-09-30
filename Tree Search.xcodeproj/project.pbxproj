@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1058A3E41F61ED5F00D6D7A9 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E31F61ED5F00D6D7A9 /* Stack.swift */; };
-		1058A3E61F61EDB800D6D7A9 /* MutableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */; };
-		1058A3E81F61EDE400D6D7A9 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */; };
 		1058A3EE1F61EF1B00D6D7A9 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058A3EB1F61EF1B00D6D7A9 /* State.swift */; };
 		10E5E6731F62D57B00B567E8 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6721F62D57B00B567E8 /* Problem.swift */; };
-		10E5E6751F62D58C00B567E8 /* StateMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6741F62D58C00B567E8 /* StateMC.swift */; };
-		10E5E6771F62D5B100B567E8 /* MissionariesCannibalProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */; };
+		E71C27541F76AE75006CBB6F /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C27531F76AE75006CBB6F /* Cities.swift */; };
+		E71C27571F76B6B5006CBB6F /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C27561F76B6B5006CBB6F /* Agent.swift */; };
+		E7A9DF781F7FAE67003DB941 /* Fringeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9DF771F7FAE67003DB941 /* Fringeable.swift */; };
+		E7A9DF7A1F7FB631003DB941 /* Aspirador.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9DF791F7FB631003DB941 /* Aspirador.swift */; };
 		E7EE2CE81F60252100ACAECD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CE71F60252100ACAECD /* main.swift */; };
 		E7EE2CF41F60255F00ACAECD /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CEF1F60255F00ACAECD /* HashSet.swift */; };
 		E7EE2CF51F60255F00ACAECD /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EE2CF01F60255F00ACAECD /* LinkedList.swift */; };
@@ -35,12 +35,12 @@
 
 /* Begin PBXFileReference section */
 		1058A3E31F61ED5F00D6D7A9 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Extensions.swift"; sourceTree = "<group>"; };
-		1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		1058A3EB1F61EF1B00D6D7A9 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		10E5E6721F62D57B00B567E8 /* Problem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
-		10E5E6741F62D58C00B567E8 /* StateMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMC.swift; sourceTree = "<group>"; };
-		10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionariesCannibalProblem.swift; sourceTree = "<group>"; };
+		E71C27531F76AE75006CBB6F /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		E71C27561F76B6B5006CBB6F /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		E7A9DF771F7FAE67003DB941 /* Fringeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fringeable.swift; sourceTree = "<group>"; };
+		E7A9DF791F7FB631003DB941 /* Aspirador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aspirador.swift; sourceTree = "<group>"; };
 		E7EE2CE41F60252100ACAECD /* Tree Search */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tree Search"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EE2CE71F60252100ACAECD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E7EE2CEF1F60255F00ACAECD /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
@@ -60,13 +60,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1058A3E91F61EEEB00D6D7A9 /* Cannibal and Missionaries problem */ = {
+		E71C27501F76AE07006CBB6F /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				10E5E6741F62D58C00B567E8 /* StateMC.swift */,
-				10E5E6761F62D5B100B567E8 /* MissionariesCannibalProblem.swift */,
+				E7EE2CF31F60255F00ACAECD /* Queue.swift */,
+				1058A3E31F61ED5F00D6D7A9 /* Stack.swift */,
+				E7EE2CEF1F60255F00ACAECD /* HashSet.swift */,
+				E7EE2CF01F60255F00ACAECD /* LinkedList.swift */,
+				E7EE2CF11F60255F00ACAECD /* LinkedListNode.swift */,
 			);
-			name = "Cannibal and Missionaries problem";
+			name = Structures;
+			sourceTree = "<group>";
+		};
+		E71C27511F76AE41006CBB6F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				10E5E6721F62D57B00B567E8 /* Problem.swift */,
+				1058A3EB1F61EF1B00D6D7A9 /* State.swift */,
+				E7A9DF771F7FAE67003DB941 /* Fringeable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		E71C27521F76AE62006CBB6F /* Problems */ = {
+			isa = PBXGroup;
+			children = (
+				E71C27531F76AE75006CBB6F /* Cities.swift */,
+				E7A9DF791F7FB631003DB941 /* Aspirador.swift */,
+			);
+			name = Problems;
+			sourceTree = "<group>";
+		};
+		E71C27551F76B6AD006CBB6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E71C27561F76B6B5006CBB6F /* Agent.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E7EE2CDB1F60252100ACAECD = {
@@ -97,16 +127,10 @@
 		E7EE2CEE1F60255F00ACAECD /* blind-searches */ = {
 			isa = PBXGroup;
 			children = (
-				1058A3E91F61EEEB00D6D7A9 /* Cannibal and Missionaries problem */,
-				E7EE2CEF1F60255F00ACAECD /* HashSet.swift */,
-				E7EE2CF01F60255F00ACAECD /* LinkedList.swift */,
-				E7EE2CF11F60255F00ACAECD /* LinkedListNode.swift */,
-				E7EE2CF31F60255F00ACAECD /* Queue.swift */,
-				1058A3E31F61ED5F00D6D7A9 /* Stack.swift */,
-				1058A3E51F61EDB800D6D7A9 /* MutableCollection+Extensions.swift */,
-				1058A3E71F61EDE400D6D7A9 /* Collection+Extensions.swift */,
-				10E5E6721F62D57B00B567E8 /* Problem.swift */,
-				1058A3EB1F61EF1B00D6D7A9 /* State.swift */,
+				E71C27501F76AE07006CBB6F /* Structures */,
+				E71C27551F76B6AD006CBB6F /* Model */,
+				E71C27521F76AE62006CBB6F /* Problems */,
+				E71C27511F76AE41006CBB6F /* Protocols */,
 			);
 			path = "blind-searches";
 			sourceTree = "<group>";
@@ -170,16 +194,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1058A3E61F61EDB800D6D7A9 /* MutableCollection+Extensions.swift in Sources */,
-				10E5E6771F62D5B100B567E8 /* MissionariesCannibalProblem.swift in Sources */,
 				E7EE2CF61F60255F00ACAECD /* LinkedListNode.swift in Sources */,
+				E71C27571F76B6B5006CBB6F /* Agent.swift in Sources */,
 				1058A3EE1F61EF1B00D6D7A9 /* State.swift in Sources */,
 				10E5E6731F62D57B00B567E8 /* Problem.swift in Sources */,
+				E7A9DF781F7FAE67003DB941 /* Fringeable.swift in Sources */,
 				E7EE2CF81F60255F00ACAECD /* Queue.swift in Sources */,
 				E7EE2CF51F60255F00ACAECD /* LinkedList.swift in Sources */,
+				E7A9DF7A1F7FB631003DB941 /* Aspirador.swift in Sources */,
 				E7EE2CF41F60255F00ACAECD /* HashSet.swift in Sources */,
-				1058A3E81F61EDE400D6D7A9 /* Collection+Extensions.swift in Sources */,
-				10E5E6751F62D58C00B567E8 /* StateMC.swift in Sources */,
+				E71C27541F76AE75006CBB6F /* Cities.swift in Sources */,
 				1058A3E41F61ED5F00D6D7A9 /* Stack.swift in Sources */,
 				E7EE2CE81F60252100ACAECD /* main.swift in Sources */,
 			);

@@ -11,17 +11,20 @@ import Foundation
 enum SearchType {
     case bfs
     case dfs
-    case iddfs
-    case dls
+//    case iddfs
+//    case dls
 }
 
-protocol State:Equatable,CustomStringConvertible{
-    associatedtype ValueType
-    var value:ValueType { get }
-    func isValid() -> Bool
-    func isGoal() -> Bool
-    func generateSucessors() -> [Self]
+
+protocol Node: Equatable {
+    
+    associatedtype NodeValueType : Any
+    
+    var value : NodeValueType {get set}
+    var parent : Self? {get set}
+    func sucessors() -> [Self]
 }
+
 
 
 
